@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      <Header id="header"></Header>
+      <main id="main">
+          <router-view/>
+      </main>
+    <Footer id="footer"></Footer>
   </div>
 </template>
 
-<style>
+<script>
+    import Header from '@/components/header.vue'
+    import Footer from '@/components/footer.vue'
+
+    export default {
+        name:'App',
+        components:{
+            Header,
+            Footer
+        }
+    }
+</script>
+
+<style lang="less">
+    @import "./assets/base.less";
+    @import "./assets/common.less";
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    display: grid;
+    grid-template-columns: 12% auto 12%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header header"
+                         ".       main    ."
+                         "footer footer footer";
 }
+#header{
+    grid-area: header;
+}
+#main{
+    grid-area: main;
+}
+#footer{
+    grid-area: footer;
+}
+    @media (max-width: 768px) {
+        #app{
+            grid-template-columns: 10px auto 10px;
 
-#nav {
-  padding: 30px;
-}
+            #header,#footer{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
+
+
+
+
 </style>
