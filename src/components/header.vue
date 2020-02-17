@@ -3,12 +3,14 @@
         <template v-if="isLogin">
             <div class="login">
                 <div class="nav-left">
-                    <h3><router-link to="/" class="white">王二狗</router-link></h3>
+                    <h3>
+                        <router-link to="/" class="white">多用户博客管理平台</router-link>
+                    </h3>
                 </div>
                 <div class="nav-right">
-                    <router-link to="/create"><i class="el-icon-plus" ></i></router-link>
+                    <router-link to="/create"><i class="el-icon-edit"></i></router-link>
                     <div class="block">
-                        <el-avatar :size="45" class="avatar" >avatar</el-avatar>
+                        <el-avatar :size="45" class="avatar">avatar</el-avatar>
                         <ul>
                             <li>
                                 <router-link to="/my">我的{{user.id}}</router-link>
@@ -22,10 +24,10 @@
 
         <template v-if="!isLogin">
             <div class="logout">
-                <h3>多人共享博客</h3>
-                <div class="btns">
-                    <el-button type="primary" class="btn"><router-link to="/login">立刻登录</router-link></el-button>
-                    <el-button type="primary" class="btn"><router-link to="/register">注册账号</router-link></el-button>
+                <h3><router-link to="/" class="title">多用户博客管理平台</router-link></h3>
+                <div class="route">
+                        <router-link to="/login" class="login1">登录</router-link>
+                        <router-link to="/register" class="register">注册</router-link>
                 </div>
             </div>
         </template>
@@ -70,13 +72,15 @@
     @import "../assets/base.less";
 
     header {
-        background-color: @bgColor;
+        background-color: @color-login-theme;
         padding: 0 12%;
         display: grid;
+        border-bottom: 1px solid #dfdfdf;
 
         .login {
             display: grid;
             color: white;
+            background-color: #262626;
             grid-template-areas: 'left middle right';
             grid-template-columns: repeat(3, 33.3%);
 
@@ -88,8 +92,8 @@
                     display: inline-block;
                     font-weight: normal;
                     margin: 16px 0;
-                    
-                    .white{
+
+                    .white {
                         color: white;
                         text-decoration: none;
                     }
@@ -100,7 +104,7 @@
                 grid-area: right;
                 position: relative;
 
-                .el-icon-plus{
+                .el-icon-edit {
                     position: absolute;
                     font-size: 20px;
                     right: 80px;
@@ -132,23 +136,38 @@
         }
 
         .logout {
-            display: grid;
+            display:grid;
             color: white;
-            /*grid-template-areas: 'left middle right';*/
-            /*grid-template-columns: repeat(3, 33.3%);*/
+            grid-template-columns: 3fr 1fr ;
+            padding: 10px 0;
 
             h3 {
                 text-align: center;
                 font-weight: normal;
-                margin: 16px 0;
+                align-self: center;
+                justify-self: start;
+
+                .title{
+                    color: #262626;
+                }
             }
 
-            .btns {
+            .route{
                 text-align: center;
-                margin-bottom: 20px;
+                display: grid;
+                align-items: center;
+                grid-auto-flow: column;
 
-                .btn{
-                    text-align: center;
+                .login1{
+                    justify-self: end;
+                    color: red;
+
+                }
+
+                .register{
+                    justify-self:start;
+                    padding-left: 10px;
+                    color: red;
                 }
             }
 

@@ -10,7 +10,7 @@ export default {
             titleNumber: '30',
             descNumber: '30',
             titleLimit: '',
-            descLimit: ''
+            descLimit: '',
         }
     },
     methods: {
