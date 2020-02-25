@@ -10,7 +10,9 @@ export default function request(url,type="GET",data={}) {
     return new Promise((resolve,reject)=>{
         let option = {
             url,
-            method:type
+            // 我觉得这个地方不需要method，所以我简化了
+            // method:type
+            type
         }
         if(type.toLocaleLowerCase() === 'get'){
             option.params = data

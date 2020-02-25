@@ -25,11 +25,13 @@
                 </div>
             </router-link>
         </div>
+        <div>11111</div>
         <section class="paging">
             <el-pagination
                     @current-change="onPageChange"
                     :current-page="this.page"
                     layout="prev, pager, next"
+                    pager-count="20"
                     :total="total">
             </el-pagination>
         </section>
