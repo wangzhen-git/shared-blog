@@ -1,9 +1,7 @@
 <template>
     <div id="login">
-        <h3>用户名</h3>
-        <el-input v-model="password" placeholder="请输入注册名" autocomplete="on"></el-input>
-        <h3>密码</h3>
-        <el-input  v-model="password" placeholder="请输注册入密码" @keyup.enter="onLogin" autocomplete="on" ></el-input>
+        <el-input v-model="username" placeholder="请输入账户" autocomplete="on"></el-input>
+        <el-input  v-model="password" placeholder="请输入密码" @keyup.enter="onLogin" autocomplete="on" ></el-input>
         <el-button @click="onRegister" type="success" plain>注册账号</el-button>
     </div>
 </template>
@@ -29,3 +27,28 @@
         }
     }
 </script>
+
+<style scoped lang="less">
+    #login {
+        margin-top: 40px;
+
+        .el-input {
+            margin-top: 20px;
+        }
+
+        .el-button {
+            margin-top: 30px;
+            display: flex;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            color: #ccc;
+            font-size: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+</style>

@@ -4,7 +4,7 @@
             <div class="login">
                 <div class="nav-left">
                     <h3>
-                        <router-link to="/" class="white">多用户博客管理平台</router-link>
+                        <router-link to="/" class="white" >多用户博客管理平台</router-link>
                     </h3>
                 </div>
                 <div class="nav-right">
@@ -93,7 +93,7 @@
                     font-weight: normal;
                     margin: 16px 0;
 
-                    .white {
+                    .white{
                         color: white;
                         text-decoration: none;
                     }
@@ -148,7 +148,8 @@
                 justify-self: start;
 
                 .title{
-                    color: #262626;
+                    font-size: 14px;
+                    color: white;
                 }
             }
 
